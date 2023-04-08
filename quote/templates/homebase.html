@@ -26,7 +26,7 @@
 									<a href="{% url 'home' %}" class="logo"><strong>MEANDCO</strong> by MEANDCO Web Design</a>
 									<ul class="icons">
 										{% if request.user.is_authenticated %}
-										Hi {{ request.user.first_name|default:request.user.username }}! <a href="{% url 'logout' %}">Logout</a>
+										Hi {{ request.user.first_name|default:request.user.username | title }}! <a href="{% url 'logout' %}">Logout</a>
 										{% else %}
 										Not logged in. <a href="{% url 'login' %}">Log-in</a>
 										{% endif %}
