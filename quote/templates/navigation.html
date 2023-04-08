@@ -1,0 +1,49 @@
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+      <!-- Search -->
+        <!-- <section id="search" class="alt">
+          <form method="post" action="#">
+            <input type="text" name="query" id="query" placeholder="Search" />
+          </form>
+        </section> -->
+
+      <!-- Menu -->
+        <nav id="menu">
+          <header class="major">
+            <h2>Menu</h2>
+          </header>
+          {% if request.user.is_authenticated %}
+          <ul>
+            <li {% if section == 'home' %}class="selected"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="getquote.html">Get A Quote</a></li>
+            <li><a href="showquotes.html">Show Quotes</a></li>
+            
+          </ul>
+          {% endif %}
+        </nav>
+
+      
+
+      <!-- Section -->
+        <section>
+          <header class="major">
+            <h2>Get in touch</h2>
+          </header>
+          <ul class="contact">
+            <li class="icon solid fa-envelope"><a href="mailto:efong505@nmsu.edu">efong505@nmsu.edu</a></li>
+            <li class="icon solid fa-phone">(505) 312-3941</li>
+            <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+            Albuquerque, NM 00000-0000</li>
+          </ul>
+        </section>
+
+      <!-- Footer -->
+        <footer id="footer">
+          <p class="copyright">&copy; MEANDCO. All rights reserved.  <br>Design by: <a href="https://html5up.net">HTML5 UP</a>.</p>
+        </footer>
+
+    </div>
+  </div>

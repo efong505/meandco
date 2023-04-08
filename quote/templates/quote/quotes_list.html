@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}All Quuotes{% endblock %}
+{% block header %}All Quotes{% endblock %}
+{% block content %}
+  <!-- Table -->
+  <h3>All Quotes</h3>
+
+													
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Client Name</th>
+                <th>Company</th>
+                <th>Submited</th>
+                <th>Quoted</th>
+                <th>Quoted Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if quotes %}
+            {% for q in quotes %}
+                <tr>
+                    <td>{{ q.id }}</td>
+                    <td>{{ q.name }}</td>
+                    <td>{{ q.company }} </td>
+                    <td>{{ q.created }}</td>
+                    <td>{{ q.stat }}</td>
+                    <td>{% if q.quoted_price  %}{{ q.quoted_price }} {% else %}--{% endif %}</td>														
+                </tr>
+            {% endfor %}
+            
+            {% endif %}    
+            
+              
+          </tbody>
+          <!-- <tfoot>
+              <tr>
+                  <td colspan="5"></td>
+                  <td>100.00</td>
+              </tr>
+          </tfoot> -->
+        </table>
+     </div>
+{% endblock %}

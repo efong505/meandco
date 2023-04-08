@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}MEANDCO by Meandco Web Design{% endblock %}
+{% block content %}
+  {% comment %} <h1>Log-in</h1> {% endcomment %}
+  <p>Please, use the following form to log-in:</p>
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Log in"></p>
+  </form>
+{% endblock %}
+

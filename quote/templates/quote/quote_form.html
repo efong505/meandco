@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Quote Request{% endblock %}
+{% block header %}Quote Request{% endblock %}
+{% block content %}
+  <p>Please use the following form to submit your request:</p>
+  <form method="post">
+    {% csrf_token %}
+    {{ quote_request.as_p }}
+    
+    <p><input type="submit" value="Request Quote"></p>
+  </form>
+{% endblock %}

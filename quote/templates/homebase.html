@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{% block title %}{% endblock title %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<a href="{% url 'home' %}" class="logo"><strong>MEANDCO</strong> by MEANDCO Web Design</a>
+									<ul class="icons">
+										{% if request.user.is_authenticated %}
+										Hi {{ request.user.first_name|default:request.user.username }}! <a href="{% url 'logout' %}">Logout</a>
+										{% else %}
+										Not logged in. <a href="{% url 'login' %}">Log-in</a>
+										{% endif %}
+										<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li> -->
+									</ul>
+								</header>
+
+							<!-- Banner -->
+								{% block content %}{% endblock content %}
+
+							
+							
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<!-- <section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section> -->
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										{% url 'quote' as url%}
+										{% url 'contact' as contact %}
+										{% url 'quotes_list' as list %}
+										<li {% if section == 'home' %}class="selected"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+										<li {% if request.path == contact %}class="selected"{% endif %}><a href="{% url 'contact' %}">Contact Us</a></li>
+										<li {% if request.path == url %}class="selected"{% endif %}><a href="{% url 'quote' %}">Get A Quote</a></li>
+										<li {% if request.path == list %}class="selected"{% endif %}><a href="{% url 'quotes_list' %}">Show Quotes</a></li>
+										
+									</ul>
+								</nav>
+
+							
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:efong505@nmsu.edu">efong505@nmsu.edu</a></li>
+										<li class="icon solid fa-phone">(505) 312-3941</li>
+										<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+										Albuquerque, NM 00000-0000</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; MEANDCO. All rights reserved.  <br>Design by: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
