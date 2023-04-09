@@ -5,7 +5,6 @@ from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm, QuoteForm
 from .models import Quote
-# from .models import Customer
 
 def user_login(request):
     if request.method == 'POST':

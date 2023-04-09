@@ -4,22 +4,6 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
-# Create your models here.
-# class Customer(models.Model):
-#     # user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     user = models.OneToOneField(settings.AUTH_USER_MODEL, 
-#                                 on_delete=models.CASCADE)
-#     # username = models.CharField(max_length=250)
-#     # first_name = models.CharField(max_length=250)
-#     position = models.CharField(max_length=250)
-#     company = models.CharField(max_length=250)
-#     address = models.CharField(max_length=300)
-#     phone = models.CharField(max_length=30)
-#     email = models.EmailField(max_length=250)
-#     web_address = models.CharField(max_length=250)
-
-#     def __str__(self):
-        # return f'Profile of {self.user.username}'
 
 class Quote(models.Model):
     class Status(models.TextChoices):
@@ -29,6 +13,8 @@ class Quote(models.Model):
         PENDING = 'Pending'
         REVIEWING = 'Reviewing'
         APPROVED = 'Approved'
+
+        
     class Priority(models.TextChoices):
         URGENT  = 'UG', _('Urgent - 1 to week or less')
         NORMAL  = 'NM', _('Normal - 2 to 4 weeks')
@@ -68,5 +54,6 @@ class Quote(models.Model):
         indexes = [
             models.Index(fields=['created'])
         ]
+
     def __str__(self):
         return self.name
