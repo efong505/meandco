@@ -16,18 +16,20 @@
                 <th>Submited</th>
                 <th>Quoted</th>
                 <th>Quoted Price</th>
+                <th>Last Updated</th>
             </tr>
             </thead>
             <tbody>
             {% if quotes %}
             {% for q in quotes %}
                 <tr>
-                    <td>{{ q.id }}</td>
+                    <td><a href="{% url 'quote_detail' q.id %}">{{ q.id }}</a></td>
                     <td>{{ q.name }}</td>
                     <td>{{ q.company }} </td>
                     <td>{{ q.created }}</td>
                     <td>{{ q.stat }}</td>
                     <td>{% if q.quoted_price  %}{{ q.quoted_price }} {% else %}--{% endif %}</td>														
+                    <td>{{ q.updated }}</td>
                 </tr>
             {% endfor %}
             

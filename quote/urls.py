@@ -41,4 +41,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('quote/', views.quote, name='quote'),
     path('quotes/', views.quotes_list, name='quotes_list'),
+    path('quote/<int:quote_id>/', views.quote_detail, name='quote_detail'),
 ]

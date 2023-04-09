@@ -36,18 +36,15 @@ class Quote(models.Model):
 
 
 
-    name = models.CharField(max_length=250, null=True,
-                            blank=True)
+    name = models.CharField(max_length=250)
     position = models.CharField(max_length=250, null=True,
                                 blank=True)
     company = models.CharField(max_length=250, null=True, 
                                blank=True)
     address = models.CharField(max_length=250, null=True, 
                                blank=True)
-    phone = models.CharField(max_length=30, null=True,
-                             blank=True)
-    email = models.EmailField(max_length=250, null=True,
-                             blank=True)
+    phone = models.CharField(max_length=30)
+    email = models.EmailField(max_length=250)
     web_address = models.CharField(max_length=250, null=True,
                                    blank=True)
     
@@ -63,6 +60,9 @@ class Quote(models.Model):
                                 default=Priority.NORMAL)
     quoted_price = models.DecimalField(max_digits=250,decimal_places=2,
                                     null=True, blank=True)
+    jobfile = models.FileField(upload_to="jobfiles/", null=True, blank=True)
+
+
     class Meta:
         ordering = ['created']
         indexes = [

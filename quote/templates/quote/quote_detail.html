@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Quote #{{ quote.id }} for {{ quote.name }}{% endblock %}
+{% block header %}Quote #{{ quote.id }} for {{ quote.name }}{% endblock %}
+{% block h4 %}Company: {{ quote.company }}{% endblock h4 %}
+{% block content %}
+  <!-- Table -->
+  <h3>Record</h3>
+
+													
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>ID</th><td>{{ quote.id }}</td>
+                </tr>
+                <tr>
+                    <th>Client Name</th><td>{{ quote.name }}</td>
+                </tr>
+                <tr>
+                    <th>Company</th><td>{{ quote.company }} </td>
+                </tr>
+                <tr>
+                    <th>Submited</th><td>{{ quote.created }}</td>
+                </tr>
+                <tr>
+                    <th>Quoted</th><td>{{ quote.stat }}</td>
+                </tr>
+                <tr>
+                    <th>Quoted Price</th><td>{% if quote.quoted_price  %}{{ quote.quoted_price }} {% else %}--{% endif %}</td>														
+                </tr>
+                <tr>
+                    <th>Last Updated</th><td>{{ quote.updated }}</td>
+                </tr>              
+          </tbody>
+        </table>
+     </div>
+{% endblock %}

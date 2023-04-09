@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
     <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}" />
 </head>
 <body>
     <body class="is-preload">
@@ -40,7 +41,9 @@
                   <section>
                     <header class="main">
                       <h1>{% block header %}{% endblock header %}</h1>
+                      <h3>{% block h4 %}{% endblock h4 %}</h3>
                     </header>
+                   
                     <hr class="major" />
                     
                     <!-- Elements -->

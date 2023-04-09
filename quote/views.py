@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
@@ -28,7 +28,7 @@ def user_login(request):
     context = {'form': form}
     return render(request, 'quote/login.html', context)
 
-
+@login_required(login_url='login')
 def quote(request):
     if request.method == 'POST':
         form = QuoteForm(request.POST)
@@ -38,24 +38,34 @@ def quote(request):
             context = {'quote_request':quote_request}
             return render(request, 'quote/quote_submit_done.html', context)
     else:
-        quote_request = QuoteForm()
+        quote_request = QuoteForm() 
         context = {'quote_request':quote_request}
         return render(request, 'quote/quote_form.html', context)
 
+@login_required(login_url='login')
 def quotes_list(request):
     quotes =  Quote.objects.all()
     context = {'quotes':quotes}
     return render(request, 'quote/quotes_list.html', context)
+
+@login_required(login_url='login')
+def quote_detail(request, quote_id):
+    # quote = Quote.objects.get(pk=quote_detail)
+    
+    quote = get_object_or_404(Quote, pk=quote_id)
+    context = {'quote': quote}
+    return render(request, 'quote/quote_detail.html', context)
 
 # @login_required()
 def home(request):
     context = {'section': 'home'}
     return render(request, 'quote/home.html', context)
 
+@login_required(login_url='login')
 def contact(request):
     return render(request, 'quote/contact.html')
 
-# Reigser account
+# Register account
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)

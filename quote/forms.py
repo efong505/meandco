@@ -27,5 +27,7 @@ class UserRegistrationForm(forms.ModelForm):
 class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
-        fields = [ 'name', 'position', 'company', 'address', 'phone', 'email', 'web_address', 'description', 'priority']
+        fields = [ 'name', 'position', 'company', 'address', 
+                  'phone', 'email', 'web_address', 'description', 
+                  'priority', 'jobfile']
     
