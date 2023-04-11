@@ -20,8 +20,6 @@ class Quote(models.Model):
         NORMAL  = 'NM', _('Normal - 2 to 4 weeks')
         LOW     = 'LW', _('Low - Still Researching')        
 
-
-
     name = models.CharField(max_length=250)
     position = models.CharField(max_length=250, null=True,
                                 blank=True)
@@ -33,9 +31,7 @@ class Quote(models.Model):
     email = models.EmailField(max_length=250)
     web_address = models.CharField(max_length=250, null=True,
                                    blank=True)
-    
     description = models.TextField()
-    
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     stat = models.CharField(max_length=20,
@@ -54,6 +50,13 @@ class Quote(models.Model):
         indexes = [
             models.Index(fields=['created'])
         ]
+
+    def __str__(self):
+        return self.name
+    
+class Home(models.Model):
+    name = models.CharField(max_length=250)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name

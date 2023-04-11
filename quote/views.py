@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm, QuoteForm
-from .models import Quote
+from .models import Quote, Home
 
 def user_login(request):
     if request.method == 'POST':
@@ -57,7 +57,8 @@ def quote_detail(request, quote_id):
 
 # @login_required()
 def home(request):
-    context = {'section': 'home'}
+    text = Home.objects.all()
+    context = {'section': 'home', 'text': text}
     return render(request, 'quote/home.html', context)
 
 
