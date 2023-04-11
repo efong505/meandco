@@ -6,6 +6,7 @@ from .models import Quote, Home
 
 class QuoteAdmin(admin.ModelAdmin):
     list_display = ['name', 'company', 'phone', 'email','priority']
+    
 admin.site.register(Quote, QuoteAdmin)
 
 class HomeAdmin(admin.ModelAdmin):
