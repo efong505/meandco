@@ -60,7 +60,7 @@ def home(request):
     context = {'section': 'home'}
     return render(request, 'quote/home.html', context)
 
-@login_required(login_url='login')
+
 def contact(request):
     return render(request, 'quote/contact.html')
 
