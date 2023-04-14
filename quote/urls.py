@@ -8,7 +8,7 @@ urlpatterns = [
 
     # Home page
     path('', views.home, name="home"),
-    path('contact', views.contact, name='contact'),
+    # path('contact', views.contact, name='contact'),
 
     # Login Urls
     # path('login/', auth_views.LoginView.as_view(), name="login"),
@@ -42,4 +42,5 @@ urlpatterns = [
     path('quote/', views.quote, name='quote'),
     path('quotes/', views.quotes_list, name='quotes_list'),
     path('quote/<int:quote_id>/', views.quote_detail, name='quote_detail'),
+    path('quote/contact/', views.contact_form_email_send, name='send_email'),
 ]

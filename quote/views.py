@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegistrationForm, QuoteForm
+from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm
 from .models import Quote, Home
+from django.core.mail import send_mail
 
 def user_login(request):
     if request.method == 'POST':
@@ -40,6 +41,26 @@ def quote(request):
         quote_request = QuoteForm() 
         context = {'quote_request':quote_request}
         return render(request, 'quote/quote_form.html', context)
+    
+def contact_form_email_send(request):
+    sent = False
+    if request.method == 'POST':
+        # Form was submitted
+        form = EmailPostForm(request.POST)
+        if form.is_valid():
+            #Form Fields passed validation
+            cd = form.cleaned_data
+            email = f"{cd['email']}"
+            subject = f"{cd['subject']}--from {cd['name']}"
+            message = f"Name: {cd['name']}\nFrom: {email}\nMessage: \n{cd['message']}"
+            send_mail(subject, message, 'hawaiianintucson@gmail.com', 
+                      ['hawaiianintucson@gmail.com'])
+            sent = True
+
+    else:
+        form = EmailPostForm()
+    context = {'form': form, 'sent':sent}
+    return render(request, "quote/contact.html", context)
 
 @login_required(login_url='login')
 def quotes_list(request):
@@ -62,8 +83,8 @@ def home(request):
     return render(request, 'quote/home.html', context)
 
 
-def contact(request):
-    return render(request, 'quote/contact.html')
+# def contact(request):
+#     return render(request, 'quote/contact.html')
 
 # Register account
 def register(request):
@@ -86,3 +107,4 @@ def register(request):
     return render(request,
                   'quote/register.html',
                   {'user_form': user_form})
+

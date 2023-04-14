@@ -2,8 +2,31 @@
 {% block title %}Contact Us{% endblock %}
 {% block header %}Contact Us{% endblock %}
 {% block content %}
-{% csrf_token %}
-<form method="post" action="#">
+
+
+{% if sent %}
+<h1>E-mail successfully sent</h1>
+<p>
+    Message was sent.
+</p>
+{% else %}
+<div class="row gtr-uniform">
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <div class="col-12">
+            <ul class="actions">
+                <li><input type="submit" value="Send Message" class="primary" /></li>
+                <li><input type="reset" value="Reset" /></li>
+            </ul>
+        </div>
+    </form>
+    
+</div>
+
+{% endif %}
+
+{% comment %} <form method="post" action="#">
     <div class="row gtr-uniform">
         <div class="col-6 col-12-xsmall">
             <input type="text" name="name" id="name" value="" placeholder="Name" />
@@ -29,5 +52,5 @@
             </ul>
         </div>
     </div>
-</form>
+</form> {% endcomment %}
 {% endblock %}

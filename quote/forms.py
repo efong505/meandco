@@ -31,3 +31,11 @@ class QuoteForm(forms.ModelForm):
                   'phone', 'email', 'web_address', 'description', 
                   'priority', 'jobfile']
     
+class EmailPostForm(forms.Form):
+    name = forms.CharField(max_length=25)
+    email = forms.EmailField()
+    # to = forms.EmailField()
+    subject = forms.CharField(max_length=25)
+    message = forms.CharField(required=False,
+                              widget=forms.Textarea)
+    
