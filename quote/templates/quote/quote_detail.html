@@ -34,6 +34,9 @@
                     <th>Quoted Price</th><td>{% if quote.quoted_price  %}{{ quote.quoted_price }} {% else %}--{% endif %}</td>														
                 </tr>
                 <tr>
+                    <th>Submitted By</th><td>{{ quote.requester | title }}</td>
+                </tr>
+                <tr>
                     <th>Last Updated</th><td>{{ quote.updated }}</td>
                 </tr>              
           </tbody>
