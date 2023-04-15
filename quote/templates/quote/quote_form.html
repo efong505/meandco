@@ -3,7 +3,7 @@
 {% block header %}Quote Request{% endblock %}
 {% block content %}
   <p>Please use the following form to submit your request:</p>
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ quote_request.as_p }}
     

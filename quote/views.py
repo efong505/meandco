@@ -31,7 +31,7 @@ def user_login(request):
 @login_required(login_url='login')
 def quote(request):
     if request.method == 'POST':
-        form = QuoteForm(request.POST)
+        form = QuoteForm(request.POST, request.FILES)
         if form.is_valid():
             quote_request = form.save(commit=False)
             quote_request.save()
