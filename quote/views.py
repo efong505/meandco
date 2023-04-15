@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm
 from .models import Quote, Home
 from django.core.mail import send_mail
+from django.contrib.auth.models import User
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -34,6 +36,7 @@ def quote(request):
         form = QuoteForm(request.POST, request.FILES)
         if form.is_valid():
             quote_request = form.save(commit=False)
+            form.instance.requester = request.user
             quote_request.save()
             context = {'quote_request':quote_request}
             return render(request, 'quote/quote_submit_done.html', context)
@@ -64,7 +67,11 @@ def contact_form_email_send(request):
 
 @login_required(login_url='login')
 def quotes_list(request):
-    quotes =  Quote.objects.all()
+    # if request.user_name.is_authenticated():
+    
+    quotes =  Quote.objects.filter(requester=request.user)
+    #quotes = Quote.objects.all()
+    
     context = {'quotes':quotes}
     return render(request, 'quote/quotes_list.html', context)
 

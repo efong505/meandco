@@ -30,6 +30,7 @@
                     <td>{{ q.stat }}</td>
                     <td>{% if q.quoted_price  %}{{ q.quoted_price }} {% else %}--{% endif %}</td>														
                     <td>{{ q.updated }}</td>
+                    <td>{{ q.requester }}</td>
                 </tr>
             {% endfor %}
             

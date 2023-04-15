@@ -2,9 +2,11 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 
 
+# User1 = get_user_model()
 class Quote(models.Model):
     class Status(models.TextChoices):
         # PENDING = 'PD', _('Pending')
@@ -20,7 +22,11 @@ class Quote(models.Model):
         NORMAL  = 'NM', _('Normal - 2 to 4 weeks')
         LOW     = 'LW', _('Low - Still Researching')        
 
+
     name = models.CharField(max_length=250)
+    requester = models.ForeignKey(User, 
+                                  on_delete=models.CASCADE, related_name='quotes')
+    
     position = models.CharField(max_length=250, null=True,
                                 blank=True)
     company = models.CharField(max_length=250, null=True, 
@@ -55,7 +61,7 @@ class Quote(models.Model):
         return self.name
     
 class Home(models.Model):
-    name = models.CharField(max_length=250)
+    name = models.CharField("Home", max_length=250)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
