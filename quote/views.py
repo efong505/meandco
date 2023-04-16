@@ -68,9 +68,11 @@ def contact_form_email_send(request):
 @login_required(login_url='login')
 def quotes_list(request):
     # if request.user_name.is_authenticated():
+    if request.user.is_superuser:
+        quotes = Quote.objects.all()
+    else:
+        quotes =  Quote.objects.filter(requester=request.user)
     
-    quotes =  Quote.objects.filter(requester=request.user)
-    #quotes = Quote.objects.all()
     
     context = {'quotes':quotes}
     return render(request, 'quote/quotes_list.html', context)
