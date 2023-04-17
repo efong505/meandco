@@ -43,5 +43,5 @@ urlpatterns = [
     path('quotes/', views.quotes_list, name='quotes_list'),
     path('quote/<int:quote_id>/', views.quote_detail, name='quote_detail'),
     path('quote/contact/', views.contact_form_email_send, name='send_email'),
-    path('quote/edit/<int:quote_id>/', views.quote_edit, name='quote_edit'), 
+    path('quote/edit/<int:id>/', views.quote_edit, name='quote_edit'), 
 ]
