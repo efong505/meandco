@@ -47,17 +47,19 @@ def quote(request):
         return render(request, 'quote/quote_form.html', context)
     
 @login_required(login_url='login')
-def quote_edit(request, quote_id):
-    quote = get_object_or_404(Quote, id=quote_id)
-    if request.method == 'POST':       
-        quote_form = QuoteEditForm(request.POST, instance=quote) #,
-                                  #data=request.POST)
-        if quote_form.is_valid():
-            quote_form.save()
+def quote_edit(request, id):
+    quote = get_object_or_404(Quote, pk=id)
+    
+    if request.method == 'GET':       
+      context = {'form': QuoteEditForm(instance=quote), 'id':id}
+#         quote_form = QuoteEditForm(request.POST, instance=quote) #,
+#                                   #data=request.POST)
+#         if quote_form.is_valid():
+#             quote_form.save()
 #     else:
         
 #         quote_form = QuoteEditForm()
-    context = {'quote_form':quote_form}
+#     context = {'quote_form':quote_form}
     return render(request, 'quote/quote_edit_form.html', context)
     
 def contact_form_email_send(request):
