@@ -49,8 +49,8 @@ def quote(request):
 def quote_edit(request, quote_id):
     if request.method == 'POST':
         quote = get_object_or_404(Quote, pk=quote_id)
-        quote_form = QuoteEditForm(instance=quote,
-                                  data=request.POST)
+        quote_form = QuoteEditForm(instance=quote) #,
+                                  #data=request.POST)
         if quote_form.is_valid():
             quote_form.save()
     else:
