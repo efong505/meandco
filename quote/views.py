@@ -46,9 +46,10 @@ def quote(request):
         return render(request, 'quote/quote_form.html', context)
     
 @login_required(login_url='login')
-def quote_edit(request):
+def quote_edit(request, quote_id):
     if request.method == 'POST':
-        quote_form = QuoteEditForm(instance=request.quote,
+        quote = get_object_or_404(Quote, pk=quote_id)
+        quote_form = QuoteEditForm(instance=quote,
                                   data=request.POST)
         if quote_form.is_valid():
             quote_form.save()
