@@ -30,12 +30,22 @@ class UserRegistrationForm(forms.ModelForm):
             raise forms.ValidationError("Email already in use.")
         return data
 
+
 class QuoteForm(forms.ModelForm):
     class Meta:
         model = Quote
         fields = [ 'name', 'position', 'company', 'address', 
                   'phone', 'email', 'web_address', 'description', 
                   'priority', 'jobfile']
+
+        
+class QuoteEditForm(forms.ModelForm):
+    class Meta:
+        model = Quote
+        fields = [ 'name', 'position', 'company', 'address', 
+                  'phone', 'email', 'web_address', 'description', 
+                  'priority', 'jobfile', 'quoted_price', 'stat', ]
+        
     
 class EmailPostForm(forms.Form):
     name = forms.CharField(max_length=25)
