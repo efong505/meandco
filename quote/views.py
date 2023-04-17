@@ -58,7 +58,7 @@ def quote_edit(request, quote_id):
             quote_edit_form = QuoteEditForm(request.POST, request.FILES, instance=quote)
             if quote_edit_form.is_valid():
                 quote_edit_form.save()
-                return redirect('quote_edit', quote_id)   
+                return redirect('quotes_list')   
         context = {'quote_edit_form':quote_edit_form}
         return render(request, 'quote/quote_edit_form.html', context)
     else:

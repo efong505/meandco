@@ -11,7 +11,7 @@
         <table>
             <thead>
             <tr>
-                <th></th>
+                {% if request.user.is_superuser %}<th><a href="{% url 'quote_edit' quote.id %}">Edit<a/></th>{% endif %}
             </tr>
             </thead>
             <tbody>

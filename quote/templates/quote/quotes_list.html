@@ -18,6 +18,7 @@
                 <th>Quoted Price</th>
                 <th>Last Updated</th>
                 <th>Submitter</th>
+                {% if request.user.is_superuser %}<th></th>{% endif %}
             </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                     <td>{% if q.quoted_price  %}{{ q.quoted_price }} {% else %}--{% endif %}</td>														
                     <td>{{ q.updated }}</td>
                     <td>{{ q.requester | title }}</td>
+                    {% if request.user.is_superuser %}<td><a href="{% url 'quote_edit' q.id %}">Edit</a></td>{% endif %}
                 </tr>
             {% endfor %}
             
