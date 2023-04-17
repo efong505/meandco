@@ -8,6 +8,7 @@ from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm, \
 from .models import Quote, Home
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
+from django.views.generic.edit import UpdateView
 
 def user_login(request):
     if request.method == 'POST':
@@ -47,15 +48,15 @@ def quote(request):
     
 @login_required(login_url='login')
 def quote_edit(request, quote_id):
-    if request.method == 'POST':
-        quote = get_object_or_404(Quote, pk=quote_id)
-        quote_form = QuoteEditForm(instance=quote) #,
+    quote = get_object_or_404(Quote, id=quote_id)
+    if request.method == 'POST':       
+        quote_form = QuoteEditForm(request.POST, instance=quote) #,
                                   #data=request.POST)
         if quote_form.is_valid():
             quote_form.save()
-    else:
-        quote = get_object_or_404(Quote, pk=quote_id)
-        quote_form = QuoteEditForm(instance=quote)
+#     else:
+        
+#         quote_form = QuoteEditForm()
     context = {'quote_form':quote_form}
     return render(request, 'quote/quote_edit_form.html', context)
     
