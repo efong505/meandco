@@ -4,9 +4,9 @@
 {% block content %}
   <p>You can edit the quote using the following form:</p>
 <!--   <form method="post" enctype="multipart/form-data"> -->
-<form method="post" novalidate>
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ quote_edit_form.as_p }}
     
     <p><input type="submit" value="Save Changes"></p>
   </form>

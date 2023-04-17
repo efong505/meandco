@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Ed\OneDrive - New Mexico State University\NMSU Semesters\Spring 2023\Software\Project\From Git\meandco\env
+set VIRTUAL_ENV=C:\Users\Ed\OneDrive - New Mexico State University\NMSU Semesters\Spring 2023\Software\Project\Phase 1\Django-Project\meandco\env
 
 if not defined PROMPT set PROMPT=$P$G
 

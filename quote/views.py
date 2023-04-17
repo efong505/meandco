@@ -9,6 +9,7 @@ from .models import Quote, Home
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.views.generic.edit import UpdateView
+from django.contrib.admin.views.decorators import staff_member_required
 
 def user_login(request):
     if request.method == 'POST':
@@ -46,28 +47,22 @@ def quote(request):
         context = {'quote_request':quote_request}
         return render(request, 'quote/quote_form.html', context)
     
-# @login_required(login_url='login')
-# def quote_edit(request, id):
-#     quote = get_object_or_404(Quote, pk=id)
-    
-#     if request.method == 'GET':   
-#         context = {'form': QuoteEditForm(instance=quote), 'id':id}
-#         return render(request, 'quote/quote_edit_form.html, context)
-#     elif request.method == 'POST':
-#         form = QuoteEditForm(request.POST, instance=quote)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('quote_edit')
-# #         quote_form = QuoteEditForm(request.POST, instance=quote) #,
-# #                                   #data=request.POST)
-# #         if quote_form.is_valid():
-#     #             quote_form.save()
-#          else:
-#             messages.error(request, "Please correct the following errors:")
-#             return render(request, 'quote/quote_edit_form.html, {'form':form}
-#         quote_form = QuoteEditForm()
-#     context = {'quote_form':quote_form}
-#     return render(request, 'quote/quote_edit_form.html', context)
+@login_required(login_url='login')
+
+def quote_edit(request, quote_id):
+    # quote = get_object_or_404(Quote, pk=id)
+    if request.user.is_superuser:
+        quote = Quote.objects.get(pk=quote_id)
+        quote_edit_form = QuoteEditForm(instance=quote)
+        if request.method == 'POST':
+            quote_edit_form = QuoteEditForm(request.POST, request.FILES, instance=quote)
+            if quote_edit_form.is_valid():
+                quote_edit_form.save()
+                return redirect('quote_edit', quote_id)   
+        context = {'quote_edit_form':quote_edit_form}
+        return render(request, 'quote/quote_edit_form.html', context)
+    else:
+        return redirect('home')
     
 def contact_form_email_send(request):
     sent = False
