@@ -53,7 +53,7 @@ def quote_edit(request, id):
     if request.method == 'GET':   
         context = {'form': QuoteEditForm(instance=quote), 'id':id}
         return render(request, 'quote/quote_edit_form.html, context)
-    else request.method == 'POST':
+    elif request.method == 'POST':
         form = QuoteEditForm(request.POST, instance=quote)
         if form.is_valid():
             form.save()
@@ -61,9 +61,10 @@ def quote_edit(request, id):
 #         quote_form = QuoteEditForm(request.POST, instance=quote) #,
 #                                   #data=request.POST)
 #         if quote_form.is_valid():
-#             quote_form.save()
-#     else:
-        
+    #             quote_form.save()
+         else:
+            messages.error(request, "Please correct the following errors:")
+            return render(request, 'quote/quote_edit_form.html, {'form':form}
 #         quote_form = QuoteEditForm()
 #     context = {'quote_form':quote_form}
 #     return render(request, 'quote/quote_edit_form.html', context)
