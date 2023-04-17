@@ -3,11 +3,11 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm
+from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm, \
+                    QuoteEditForm
 from .models import Quote, Home
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -44,6 +44,18 @@ def quote(request):
         quote_request = QuoteForm() 
         context = {'quote_request':quote_request}
         return render(request, 'quote/quote_form.html', context)
+    
+@login_required(login_url='login')
+def quote_edit(request):
+    if request.method == 'POST':
+        quote_form = QuoteEditForm(instance=request.quote,
+                                  data=request.POST)
+        if quote_form.is_valid():
+            quote_form.save()
+    else:
+        quote_form = QuoteEditForm(instance=request.quote)
+    context = {'quote_form':quote_form}
+    return render(request, 'quote/quote_edit_form.html', context)
     
 def contact_form_email_send(request):
     sent = False
