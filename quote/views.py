@@ -54,7 +54,8 @@ def quote_edit(request, quote_id):
         if quote_form.is_valid():
             quote_form.save()
     else:
-        quote_form = QuoteEditForm(instance=request.quote)
+        quote = get_object_or_404(Quote, pk=quote_id)
+        quote_form = QuoteEditForm(instance=quote)
     context = {'quote_form':quote_form}
     return render(request, 'quote/quote_edit_form.html', context)
     
