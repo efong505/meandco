@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
@@ -50,8 +50,14 @@ def quote(request):
 def quote_edit(request, id):
     quote = get_object_or_404(Quote, pk=id)
     
-    if request.method == 'GET':       
-      context = {'form': QuoteEditForm(instance=quote), 'id':id}
+    if request.method == 'GET':   
+        context = {'form': QuoteEditForm(instance=quote), 'id':id}
+        return render(request, 'quote/quote_edit_form.html, context)
+    else request.method == 'POST':
+        form = QuoteEditForm(request.POST, instance=quote)
+        if form.is_valid():
+            form.save()
+            return redirect('quote_edit')
 #         quote_form = QuoteEditForm(request.POST, instance=quote) #,
 #                                   #data=request.POST)
 #         if quote_form.is_valid():
@@ -60,7 +66,7 @@ def quote_edit(request, id):
         
 #         quote_form = QuoteEditForm()
 #     context = {'quote_form':quote_form}
-    return render(request, 'quote/quote_edit_form.html', context)
+#     return render(request, 'quote/quote_edit_form.html', context)
     
 def contact_form_email_send(request):
     sent = False
