@@ -36,10 +36,10 @@
                     {% if request.user.is_superuser %}<td><a href="{% url 'quote_edit' q.id %}">Edit</a></td>{% endif %}
                 </tr>
             {% endfor %}
-            
+           
             {% endif %}    
             
-              
+               
           </tbody>
           <!-- <tfoot>
               <tr>
@@ -47,6 +47,8 @@
                   <td>100.00</td>
               </tr>
           </tfoot> -->
+          
         </table>
+        {% if quotes %}{% include 'pagination.html' with page=quotes %}{% endif %}
      </div>
 {% endblock %}

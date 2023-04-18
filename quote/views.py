@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.views.generic.edit import UpdateView
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def user_login(request):
     if request.method == 'POST':
@@ -92,8 +93,17 @@ def quotes_list(request):
     else:
         quotes =  Quote.objects.filter(requester=request.user)
     
-    
-    context = {'quotes':quotes}
+    paginator = Paginator(quotes, 4)
+    page_number = request.GET.get('page', 1)
+    try:
+        quotes = paginator.page(page_number)
+    except PageNotAnInteger:
+        # if page not an integer server first page
+        quotes = paginator.page(1)
+    except EmptyPage:
+        # if page_number is out of range deliver last page of results
+        quotes = paginator.page(paginator.num_pages)
+    context = {'quotes':quotes,'quotes':quotes}
     return render(request, 'quote/quotes_list.html', context)
 
 @login_required(login_url='login')

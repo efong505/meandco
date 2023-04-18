@@ -2,7 +2,9 @@
 {% block title %}Quote Edit{% endblock %}
 {% block header %}Quote Edit{% endblock %}
 {% block content %}
-  <p>You can edit the quote using the following form:</p>
+<a href="{% url 'quotes_list' %}"><== Back to List</a><br /><br />
+  <h2>You can edit the quote using the following form:</h2>
+  
 <!--   <form method="post" enctype="multipart/form-data"> -->
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
