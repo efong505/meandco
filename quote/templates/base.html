@@ -58,33 +58,7 @@
                           
                           {% block content %}
                           {% endblock %}  
-                          
-                          {% comment %} <!-- Form -->
                             
-                            <h2>Please login</h2>
-                            <p>You must be logged in to submit or view quotes.</p>	
-                            <form method="post" action="#">
-                              <div class="row gtr-uniform">
-                                <div class="col-12 col-12-xsmall">
-                                  <input type="text" name="username" id="username" value="" placeholder="Username" />
-                                </div>
-                                <div class="col-12 col-12-xsmall">
-                                  <input type="text" name="password" id="password" value="" placeholder="Password" />
-                                </div>
-                                
-                                <!-- Break -->
-                                <div class="col-12">
-                                  <ul class="actions">
-                                    <li><input type="submit" value="Login" class="primary" /></li>
-                                    <li><input type="reset" value="Reset" /></li>
-                                  </ul>
-                                </div>
-                                <p>Not registered yet? <a href="#">Register Here</a></p>
-                              </div>
-                            </form> {% endcomment %}
-  
-                          
-  
                         </div>
                       </div>
   
@@ -92,9 +66,9 @@
   
               </div>
             </div>
-  
+  {% include 'sidebar.html' %}
           <!-- Sidebar -->
-            <div id="sidebar">
+            {% comment %} <div id="sidebar">
               <div class="inner">
   
                 <!-- Search -->
@@ -109,7 +83,7 @@
                     <header class="major">
                       <h2>Menu</h2>
                     </header>
-                    {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
+                    
                     <ul>
                       {% url 'quote' as url%}
                       {% url 'quotes_list' as list %}
@@ -120,7 +94,7 @@
                       <li {% if request.path == list %}class="selected"{% endif %}><a href="{% url 'quotes_list' %}">Show Quotes</a></li>
                       
                     </ul>
-                    {% comment %} {% endif %} {% endcomment %}
+                    
                   </nav>
   
                 
@@ -144,7 +118,7 @@
                   </footer>
   
               </div>
-            </div>
+            </div> {% endcomment %}
   
         </div>
   
