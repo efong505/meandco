@@ -95,6 +95,7 @@ def quotes_list(request):
     
     paginator = Paginator(quotes, 4)
     page_number = request.GET.get('page', 1)
+    page_range = paginator.get_elided_page_range(number=page_number)
     try:
         quotes = paginator.page(page_number)
     except PageNotAnInteger:

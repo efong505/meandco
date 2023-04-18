@@ -1,4 +1,4 @@
-<div class="pagination">
+{% comment %} <div class="pagination">
     <span class="step-links">
       {% if page.has_previous %}
         <a href="?page={{ page.previous_page_number }}">Previous</a>
@@ -10,21 +10,41 @@
         <a href="?page={{ page.next_page_number }}">Next</a>
       {% endif %}
     </span>
-</div>
-
-{% comment %} <ul class="pagination">
-  {% if page.has_previous %}
+</div> {% endcomment %}
+<span style="text-align: center;">
+{% if page.has_other_pages %}
+<ul class="pagination">
+{% if page.has_previous %}
   <li><span class="button"><a href="?page={{ page.previous_page_number }}">Previous</span></a>
+{% else %}
+<li><span class="button disabled">Previous</span></li>
 {% endif %}
-<li><span class="current">
-  Page {{ page.number }} of {{ page.paginator.num_pages }}.
-</span>
+
+{% comment %} {% for i in page.paginator.page_range %} {% endcomment %}
+{% for i in page_range|default_if_none:page.paginator.get_elided_page_range %}
+{% if page.number == i %}
+<li><a href="?page={{ i }}" class="page active">{{ i }}</a></li>
+{% else %}
+  {% if i == page.paginator.ELLIPSIS %}
+    <li><span>{{ i }}</span></li>
+  {% else %}
+    <li><a href="?page={{ i }}" class="page">{{ i }}</a></li>
+  {% endif %}
+
+{% endif %}
+
+{% endfor %}
+
 {% if page.has_next %}
-  <a href="?page={{ page.next_page_number }}">Next</a>
+  {% comment %} <a href="?page={{ page.next_page_number }}">Next</a> {% endcomment %}
+  <li><a href="?page={{ page.next_page_number }}" class="button">Next</a></li>
+{% else %}
+<li><span class="button disabled">Next</span></li>
 {% endif %}
 
-</ul> {% endcomment %}
-
+</ul> 
+{% endif %}
+</span>
 {% comment %} <h4>Pagination</h4>
 <ul class="pagination">
   <li><span class="button disabled">Prev</span></li>
