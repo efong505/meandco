@@ -75,7 +75,7 @@ def contact_form_email_send(request):
             cd = form.cleaned_data
             email = f"{cd['email']}"
             subject = f"{cd['subject']}--from {cd['name']}"
-            message = f"Name: {cd['name']}\nFrom: {email}\nMessage: \n{cd['message']}"
+            message = f"Name: {cd['name']}\nFrom: {email}\n<b>Message:</b> \n{cd['message']}"
             send_mail(subject, message, 'hawaiianintucson@gmail.com', 
                       ['hawaiianintucson@gmail.com'])
             sent = True
@@ -95,6 +95,7 @@ def quotes_list(request):
     
     paginator = Paginator(quotes, 4)
     page_number = request.GET.get('page', 1)
+    page_range = paginator.get_elided_page_range(number=page_number)
     try:
         quotes = paginator.page(page_number)
     except PageNotAnInteger:

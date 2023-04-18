@@ -1,0 +1,50 @@
+<!-- Sidebar -->
+<div id="sidebar">
+    <div class="inner">
+
+        <!-- Search -->
+            <!-- <section id="search" class="alt">
+                <form method="post" action="#">
+                    <input type="text" name="query" id="query" placeholder="Search" />
+                </form>
+            </section> -->
+
+        <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    {% url 'quote' as url%}
+                    {% url 'contact' as contact %}
+                    {% url 'quotes_list' as list %}
+                    <li {% if section == 'home' %}class="selected"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+                    <li {% if request.path == contact %}class="selected"{% endif %}><a href="{% url 'send_email' %}">Contact Us</a></li>
+                    <li {% if request.path == url %}class="selected"{% endif %}><a href="{% url 'quote' %}">Get A Quote</a></li>
+                    <li {% if request.path == list %}class="selected"{% endif %}><a href="{% url 'quotes_list' %}">Show Quotes</a></li>
+                    
+                </ul>
+            </nav>
+
+        
+
+        <!-- Section -->
+            <section>
+                <header class="major">
+                    <h2>Get in touch</h2>
+                </header>
+                <ul class="contact">
+                    <li class="icon solid fa-envelope"><a href="mailto:efong505@nmsu.edu">efong505@nmsu.edu</a></li>
+                    <li class="icon solid fa-phone"><a href="tel:5056398100">(505) 639-8100</a?</li>
+                    <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+                    Albuquerque, NM 00000-0000</li>
+                </ul>
+            </section>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <p class="copyright">&copy; MEANDCO. All rights reserved.  <br>Design by: <a href="https://html5up.net">HTML5 UP</a>.</p>
+            </footer>
+
+    </div>
+</div>

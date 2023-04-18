@@ -32,6 +32,8 @@
 										{% else %}
 										Not logged in. <a href="{% url 'login' %}">Log-in</a>
 										{% endif %}
+
+										<!--Social Media Icons -->
 										<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 										<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
@@ -49,7 +51,8 @@
 						</div>
 					</div>
 
-				<!-- Sidebar -->
+					{% include 'sidebar.html' %}
+				{% comment %} <!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
 
@@ -98,7 +101,7 @@
 								</footer>
 
 						</div>
-					</div>
+					</div> {% endcomment %}
 
 			</div>
 
