@@ -11,3 +11,29 @@
       {% endif %}
     </span>
 </div>
+
+{% comment %} <ul class="pagination">
+  {% if page.has_previous %}
+  <li><span class="button"><a href="?page={{ page.previous_page_number }}">Previous</span></a>
+{% endif %}
+<li><span class="current">
+  Page {{ page.number }} of {{ page.paginator.num_pages }}.
+</span>
+{% if page.has_next %}
+  <a href="?page={{ page.next_page_number }}">Next</a>
+{% endif %}
+
+</ul> {% endcomment %}
+
+{% comment %} <h4>Pagination</h4>
+<ul class="pagination">
+  <li><span class="button disabled">Prev</span></li>
+  <li><a href="#" class="page active">1</a></li>
+  <li><a href="#" class="page">2</a></li>
+  <li><a href="#" class="page">3</a></li>
+  <li><span>&hellip;</span></li>
+  <li><a href="#" class="page">8</a></li>
+  <li><a href="#" class="page">9</a></li>
+  <li><a href="#" class="page">10</a></li>
+  <li><a href="#" class="button">Next</a></li>
+</ul> {% endcomment %}
