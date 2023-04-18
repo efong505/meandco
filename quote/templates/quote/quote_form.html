@@ -2,7 +2,8 @@
 {% block title %}Quote Request{% endblock %}
 {% block header %}Quote Request{% endblock %}
 {% block content %}
-  <p>Please use the following form to submit your request:</p>
+  <p><a href="{% url 'quotes_list' %}"><== Go to List</a></p>
+  <h2>Please use the following form to submit your request:</h2>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ quote_request.as_p }}
