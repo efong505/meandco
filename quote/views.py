@@ -52,7 +52,20 @@ def quote(request):
 
 def quote_edit(request, quote_id):
     # quote = get_object_or_404(Quote, pk=id)
-    if request.user.is_superuser:
+    sampleadminuser = User.objects.get(username="sampleadminuser")
+
+    if request.user == sampleadminuser:
+        quote = Quote.objects.get(pk=quote_id)
+        quote_edit_form = QuoteEditForm(instance=quote)
+        if request.method == 'POST':
+            quote_edit_form = QuoteEditForm(request.POST, request.FILES, instance=quote)
+            if quote_edit_form.is_valid():
+                quote_edit_form.save()
+                return redirect('quotes_list')   
+        context = {'quote_edit_form':quote_edit_form}
+        return render(request, 'quote/quote_edit_form.html', context)
+
+    elif request.user.is_superuser:
         quote = Quote.objects.get(pk=quote_id)
         quote_edit_form = QuoteEditForm(instance=quote)
         if request.method == 'POST':
@@ -88,7 +101,10 @@ def contact_form_email_send(request):
 @login_required(login_url='login')
 def quotes_list(request):
     # if request.user_name.is_authenticated():
-    if request.user.is_superuser:
+    sampleadminuser = User.objects.get(username="sampleadminuser")
+    if request.user == sampleadminuser:
+        quotes = Quote.objects.all()
+    elif request.user.is_superuser:
         quotes = Quote.objects.all()
     else:
         quotes =  Quote.objects.filter(requester=request.user)
