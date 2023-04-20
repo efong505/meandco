@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load quote_extras %}
 {% block title %}Quote #{{ quote.id }} for {{ quote.name }}{% endblock %}
 {% block header %}Quote #{{ quote.id }} for {{ quote.name }}{% endblock %}
 {% block h4 %}Company: {{ quote.company }}{% endblock h4 %}
@@ -11,7 +12,7 @@
         <table>
             <thead>
             <tr>
-                {% if request.user.is_superuser  or user.get_username == "sampleadminuser" %}<th><a href="{% url 'quote_edit' quote.id %}">Edit<a/></th>{% endif %}
+                {% if request.user.is_superuser  or user.get_username == "sampleadminuser" or request.user|is_in_testing_group %}<th><a href="{% url 'quote_edit' quote.id %}">Edit<a/></th>{% endif %}
             </tr>
             </thead>
             <tbody>

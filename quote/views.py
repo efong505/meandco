@@ -8,10 +8,10 @@ from .forms import LoginForm, UserRegistrationForm, QuoteForm, EmailPostForm, \
 from .models import Quote, Home
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
-from django.views.generic.edit import UpdateView
-from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .templatetags.quote_extras import is_in_testing_group
 
+# Login function
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -33,6 +33,7 @@ def user_login(request):
     context = {'form': form}
     return render(request, 'quote/login.html', context)
 
+# Quote view
 @login_required(login_url='login')
 def quote(request):
     if request.method == 'POST':
@@ -48,13 +49,10 @@ def quote(request):
         context = {'quote_request':quote_request}
         return render(request, 'quote/quote_form.html', context)
     
+# Edit a quote - Login required
 @login_required(login_url='login')
-
 def quote_edit(request, quote_id):
-    # quote = get_object_or_404(Quote, pk=id)
-    sampleadminuser = User.objects.get(username="sampleadminuser")
-
-    if request.user == sampleadminuser:
+    if is_sampleadminuser or request.user.is_superuser or is_in_testing_group:
         quote = Quote.objects.get(pk=quote_id)
         quote_edit_form = QuoteEditForm(instance=quote)
         if request.method == 'POST':
@@ -63,18 +61,7 @@ def quote_edit(request, quote_id):
                 quote_edit_form.save()
                 return redirect('quotes_list')   
         context = {'quote_edit_form':quote_edit_form}
-        return render(request, 'quote/quote_edit_form.html', context)
-
-    elif request.user.is_superuser:
-        quote = Quote.objects.get(pk=quote_id)
-        quote_edit_form = QuoteEditForm(instance=quote)
-        if request.method == 'POST':
-            quote_edit_form = QuoteEditForm(request.POST, request.FILES, instance=quote)
-            if quote_edit_form.is_valid():
-                quote_edit_form.save()
-                return redirect('quotes_list')   
-        context = {'quote_edit_form':quote_edit_form}
-        return render(request, 'quote/quote_edit_form.html', context)
+        return render(request, 'quote/quote_edit_form.html', context)    
     else:
         return redirect('home')
     
@@ -92,19 +79,14 @@ def contact_form_email_send(request):
             send_mail(subject, message, 'hawaiianintucson@gmail.com', 
                       ['hawaiianintucson@gmail.com'])
             sent = True
-
     else:
         form = EmailPostForm()
     context = {'form': form, 'sent':sent}
     return render(request, "quote/contact.html", context)
 
 @login_required(login_url='login')
-def quotes_list(request):
-    # if request.user_name.is_authenticated():
-    sampleadminuser = User.objects.get(username="sampleadminuser")
-    if request.user == sampleadminuser:
-        quotes = Quote.objects.all()
-    elif request.user.is_superuser:
+def quotes_list(request):   
+    if is_sampleadminuser or request.user.is_superuser or is_in_testing_group:
         quotes = Quote.objects.all()
     else:
         quotes =  Quote.objects.filter(requester=request.user)
@@ -131,15 +113,10 @@ def quote_detail(request, quote_id):
     context = {'quote': quote}
     return render(request, 'quote/quote_detail.html', context)
 
-# @login_required()
 def home(request):
     text = Home.objects.all()
     context = {'section': 'home', 'text': text}
     return render(request, 'quote/home.html', context)
-
-
-# def contact(request):
-#     return render(request, 'quote/contact.html')
 
 # Register account
 def register(request):
@@ -163,3 +140,13 @@ def register(request):
                   'quote/register.html',
                   {'user_form': user_form})
 
+
+"""
+HELPER FUNCTIONS
+"""
+# helper function to check and see if the user is in the Testing group and is sampleadminuser. 
+def is_in_testing_group(request):
+    return request.user.groups.filter(name="Testing")
+
+def is_sampleadminuser(request):
+    return request.user == User.objects.get(username="sampleadminuser")

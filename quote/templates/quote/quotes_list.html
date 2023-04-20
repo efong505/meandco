@@ -1,11 +1,13 @@
+
 {% extends "base.html" %}
 {% block title %}All Quotes{% endblock %}
 {% block header %}All Quotes{% endblock %}
 {% block content %}
+
   <!-- Table -->
   <h3>All Quotes</h3>
 
-													
+  {% load quote_extras %}							
     <div class="table-wrapper">
         <table>
             <thead>
@@ -18,7 +20,7 @@
                 <th>Quoted Price</th>
                 <th>Last Updated</th>
                 <th>Submitter</th>
-                {% if request.user.is_superuser or user.get_username == "sampleadminuser"%}<th></th>{% endif %}
+                {% if request.user.is_superuser or user.get_username == "sampleadminuser" or request.user|is_in_testing_group %}<th></th>{% endif %}
             </tr>
             </thead>
             <tbody>
@@ -33,7 +35,7 @@
                     <td>{% if q.quoted_price  %}{{ q.quoted_price }} {% else %}--{% endif %}</td>														
                     <td>{{ q.updated }}</td>
                     <td>{{ q.requester | title }}</td>
-                    {% if request.user.is_superuser or user.get_username == "sampleadminuser" %}<td><a href="{% url 'quote_edit' q.id %}">Edit</a></td>{% endif %}
+                    {% if request.user.is_superuser or user.get_username == "sampleadminuser" or request.user|is_in_testing_group %}<td><a href="{% url 'quote_edit' q.id %}">Edit</a></td>{% endif %}
                 </tr>
             {% endfor %}
            
