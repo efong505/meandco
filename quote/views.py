@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .templatetags.quote_extras import is_in_testing_group
+from .helper import is_in_testing_group
 
 # Login function
 def user_login(request):
@@ -52,7 +53,7 @@ def quote(request):
 # Edit a quote - Login required
 @login_required(login_url='login')
 def quote_edit(request, quote_id):
-    if is_sampleadminuser or request.user.is_superuser or is_in_testing_group:
+    if request.user.is_superuser or is_in_testing_group:
         quote = Quote.objects.get(pk=quote_id)
         quote_edit_form = QuoteEditForm(instance=quote)
         if request.method == 'POST':
@@ -85,8 +86,9 @@ def contact_form_email_send(request):
     return render(request, "quote/contact.html", context)
 
 @login_required(login_url='login')
-def quotes_list(request):   
-    if is_sampleadminuser or request.user.is_superuser or is_in_testing_group:
+def quotes_list(request):
+    # sampleadminuser == User.objects.get(username="sampleadminuser")   
+    if request.user.is_superuser or is_in_testing_group(request):
         quotes = Quote.objects.all()
     else:
         quotes =  Quote.objects.filter(requester=request.user)
@@ -141,12 +143,3 @@ def register(request):
                   {'user_form': user_form})
 
 
-"""
-HELPER FUNCTIONS
-"""
-# helper function to check and see if the user is in the Testing group and is sampleadminuser. 
-def is_in_testing_group(request):
-    return request.user.groups.filter(name="Testing")
-
-def is_sampleadminuser(request):
-    return request.user == User.objects.get(username="sampleadminuser")
