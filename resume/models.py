@@ -43,3 +43,6 @@ class Certifications(models.Model):
     name = models.CharField(max_length=250)
     start = models.CharField(max_length=100)
     end = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
