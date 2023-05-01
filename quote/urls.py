@@ -3,11 +3,22 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
+    # Home page
+    path('', views.home, name="home"),
+
+    # New urls
+    path('', include('django.contrib.auth.urls')),
+    path('register/', views.register, name='register'),
+    path('quote/', views.quote, name='quote'),
+    path('quotes/', views.quotes_list, name='quotes_list'),
+    path('quote/<int:quote_id>/', views.quote_detail, name='quote_detail'),
+    path('quote/contact/', views.contact_form_email_send, name='send_email'),
+    path('quote/edit/<int:quote_id>/', views.quote_edit, name='quote_edit'), 
+
     # previous login url
     #path('login/', views.user_login, name='login')
 
-    # Home page
-    path('', views.home, name="home"),
+    
     # path('contact', views.contact, name='contact'),
 
     # Login Urls
@@ -36,12 +47,5 @@ urlpatterns = [
     #     auth_views.PasswordResetCompleteView.as_view(),
     #     name='password_reset_complete'),
 
-    # New urls
-    path('', include('django.contrib.auth.urls')),
-    path('register/', views.register, name='register'),
-    path('quote/', views.quote, name='quote'),
-    path('quotes/', views.quotes_list, name='quotes_list'),
-    path('quote/<int:quote_id>/', views.quote_detail, name='quote_detail'),
-    path('quote/contact/', views.contact_form_email_send, name='send_email'),
-    path('quote/edit/<int:quote_id>/', views.quote_edit, name='quote_edit'), 
+
 ]

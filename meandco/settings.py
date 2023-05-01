@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['edkfong505.pythonanywhere.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'resume.apps.ResumeConfig',
+    'projects.apps.ProjectsConfig',
     'quote.apps.QuoteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
