@@ -6,5 +6,3 @@ class Headeradmin(admin.ModelAdmin):
     list_display = ['name', 'intro', 'phone', 'email', 'address']
 
 admin.site.register(Header, Headeradmin)
-
-admin.site.register(Header, Headeradmin)
