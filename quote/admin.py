@@ -12,3 +12,4 @@ admin.site.register(Quote, QuoteAdmin)
 class HomeAdmin(admin.ModelAdmin):
     list_dislapy = ['name', 'udpated']
 admin.site.register(Home, HomeAdmin)
+

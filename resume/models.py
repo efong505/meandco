@@ -17,15 +17,22 @@ class Header(models.Model):
 class WorkExperience(models.Model):
     title = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
-    start = models.CharField(max_length=100)
-    end = models.CharField(max_length=100)
+    start = models.DateField()
+    end = models.DateField()
     duties = models.TextField()
+
+
+    class Meta:
+        ordering = ['-start', 'end']
+        indexes = [
+            models.Index(fields=['-start'])
+        ]
 
     def __str__(self):
         return self.title
 
 
-class Skills(models.Model):
+class Skill(models.Model):
     name = models.CharField(max_length=250)
 
     def __str__(self):
@@ -33,18 +40,33 @@ class Skills(models.Model):
 
 
 class Education(models.Model):
-    name = models.CharField(max_length=250)
-    start = models.CharField(max_length=100)
-    end = models.CharField(max_length=100)
+    title = models.CharField(max_length=250)
+    school = models.CharField(max_length=250)
+    start = models.DateField()
+    end = models.DateField()
+
+    
+    class Meta:
+        ordering = ['-start', 'end']
+        indexes = [
+            models.Index(fields=['-start'])
+        ]
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
-class Certifications(models.Model):
+class Certification(models.Model):
     name = models.CharField(max_length=250)
-    start = models.CharField(max_length=100)
-    end = models.CharField(max_length=100)
+    start = models.DateField()
+    end = models.DateField()
+
+
+    class Meta:
+        ordering = ['-start', 'end']
+        indexes = [
+            models.Index(fields=['start'])
+        ]
 
     def __str__(self):
         return self.name

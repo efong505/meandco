@@ -1,9 +1,19 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Header
+from .models import Header, Skill, WorkExperience, Education, Certification
 # Create your views here.
 
 def about(request):
     head = Header.objects.all()
-    context = {'head': head}
+    skills = Skill.objects.all()
+    work = WorkExperience.objects.all()
+    education = Education.objects.all()
+    certifications = Certification.objects.all()
+    context = {'head': head, 'skills':skills, 
+                'work':work,'education':education, 
+                'certifications': certifications}
     return render(request, 'resume/about.html', context)
+
+
+
+
