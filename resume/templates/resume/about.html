@@ -1,0 +1,12 @@
+{% extends "homebase.html" %}
+{% load static %}
+{% block title %}About{% endblock title %}
+
+{% block content %}
+{% if head %}
+    {% for a in head %}
+    {{a.name}}
+    {{a.intro}}
+    {% endfor %}
+{% endif %}
+{% endblock content %}

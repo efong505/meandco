@@ -4,6 +4,6 @@ from .models import Header
 # Create your views here.
 
 def about(request):
-    about = Header.objects.all()
-    context = {'about': about}
-    return render(requeset, 'resume/about.html', context)
+    head = Header.objects.all()
+    context = {'head': head}
+    return render(request, 'resume/about.html', context)
