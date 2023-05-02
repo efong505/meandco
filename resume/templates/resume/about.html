@@ -133,7 +133,7 @@
             {% if work %}
             {% for experience in work %}
             <span class="jobtitle"><strong>{{ experience.title }}</strong></span> 
-            <div><strong>{{ experience.location }}</strong><span class="seperate"> |</span> {{ experience.start}} to {{ experience.end }}</div>
+            <div><strong>{{ experience.location }}</strong><span class="seperate"> |</span> {{ experience.start| date:"n/Y"}} to {{ experience.end | date:"n/Y"}}</div>
             <div class="jobduties">{{ experience.duties }}</div>
             {% endfor %}
             {% else %}
@@ -160,7 +160,7 @@
             {% if education %}
             {% for ed in education %}
                 <span class="edutitle"><strong>{{ ed.title }}</strong></span> 
-                <div class="edumargin"><strong>{{ ed.school}}</strong><span class="seperate"> |</span> {{ ed.start }} to {{ ed.end }}</div>
+                <div class="edumargin"><strong>{{ ed.school}}</strong><span class="seperate"> |</span> {{ ed.start | date:"n/Y" }} to {{ ed.end | date:"n/Y"}}</div>
             {% endfor %}
             {% else %}
             <span class="edutitle"><strong>Certificate in Computer Information Systems Computer Programming</strong></span> 
@@ -179,7 +179,7 @@
             {% if cerficaations %}
             {% for cert in certifications %}
             <span class="edutitle"><strong>{{ cert.name }}</strong></span> 
-            <div class="edumargin">{{ cert.start}} to {{ cert.end }}</div>
+            <div class="edumargin">{{ cert.start | date:"n, Y"}} to {{ cert.end }}</div>
 
             {% endfor %}
             
