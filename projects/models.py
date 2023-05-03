@@ -3,7 +3,7 @@ from django.db import models
 
 class Project(models.Model):
     name = models.CharField(max_length=250)
-    description = models.CharField(max_length=700, null=True, blank=True)
+    description = models.CharField(max_length=3000, null=True, blank=True)
     leftimage = models.ImageField(upload_to='media/',
                                   null=True, blank=True)
     rightimage = models.ImageField(upload_to='media/',
