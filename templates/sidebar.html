@@ -19,8 +19,10 @@
                     {% url 'send_email' as contact %}
                     {% url 'quotes_list' as list %}
                     {% url 'about' as about %}
+                    {% url 'projects' as projects %}
                     <li {% if section == 'home' %}class="selected"{% endif %}><a href="{% url 'home' %}">Home</a></li>
                     <li {% if request.path == about %}class="selected"{% endif %}><a href="{% url 'about' %}">About</a></li>
+                    <li {% if request.path == projects %}class="selected"{% endif %}><a href="{% url 'projects' %}">Projects</a></li>
                     <li {% if request.path == contact %}class="selected"{% endif %}><a href="{% url 'send_email' %}">Contact Us</a></li>
                     <li {% if request.path == url %}class="selected"{% endif %}><a href="{% url 'quote' %}">Get A Quote</a></li>
                     <li {% if request.path == list %}class="selected"{% endif %}><a href="{% url 'quotes_list' %}">Show Quotes</a></li>
