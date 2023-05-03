@@ -4,7 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import Project
 
 class ProjectModelAdmin(SummernoteModelAdmin):
-    list_display = ('name', 'description', 'otherdetails')
-    summernote_fields = ('description', 'otherdetails',)
+    list_display = ('name', 'description', )
+    summernote_fields = ('description', 'additionalright','bottomdetails',)
 
 admin.site.register(Project, ProjectModelAdmin)

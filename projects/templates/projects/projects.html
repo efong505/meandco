@@ -1,0 +1,39 @@
+{% extends "homebase.html" %}
+{% load static %}
+{% block title %}Projects{% endblock title %}
+
+{% block content %}
+
+<section>
+    <header class="main">
+        <h1>Projects</h1>
+    </header>
+    {% if projects %}
+    {% for project in projects %}
+    <!-- Content -->
+        <h2 id="content">{{ project.name }}</h2>
+        {% if project.description %}<p>{{ project.description |safe}}</p>{% endif %}
+        <div class="row">
+            <div class="col-6 col-12-medium">
+                <span class="image fit"><img src="{{ project.leftimage.url }}" alt="" /></span>
+                
+            </div>
+            <div class="col-6 col-12-medium">
+                {% if project.rightimage %}<span class="image fit"><img src="{{ project.rightimage.url }}" alt="" /></span>{% endif %}
+                {% if project.additionalright %}
+                {{ project.additionalright|safe }}
+                {% endif %}
+                
+                {% comment %} <h3>Ed's Fong Awesome</h3>
+                <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor. Ante commodo blandit adipiscing integer semper orci eget. Faucibus commodo adipiscing mi eu nullam accumsan morbi arcu ornare odio mi adipiscing nascetur lacus ac interdum morbi accumsan vis mi accumsan.</p> {% endcomment %}
+            </div>
+            {% if project.bottomdetails %}
+            <p>{{ project.bottomdetails | safe}}</p>
+            {% endif %}
+        </div>
+        <hr>
+    {% endfor %}
+    {% endif %}
+</section>
+
+{% endblock content %}
