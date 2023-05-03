@@ -1,0 +1,96 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$m95qrCvH3XVgzqroFX5vDO$F+q9J5DhuoHXg9XFmz/vSAGoj8yIQgTeXdjeaDSncKU=",
+    "last_login": "2023-05-03T02:00:55.551Z",
+    "is_superuser": true,
+    "username": "ed",
+    "first_name": "Edward",
+    "last_name": "Fong",
+    "email": "waianaeboy702@aol.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-05-03T00:52:33Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ouN5KM8BzKXcRmQhD75EBY$KBnh8ZtEy2/uQCGZzCZVBXycPaSv2HrHTtTCJmcq4To=",
+    "last_login": "2023-05-03T02:00:39.173Z",
+    "is_superuser": false,
+    "username": "julia",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-03T01:35:19Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$3uUQefpuLlyfDSpBDWdvBM$3bQ/s0E7wXkEjR66FShMD4MMpU0RNvV9elFH9XPx8YE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "william",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-03T01:37:27.324Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$ALqd5YxiALXDy2FJYHRXC7$8PqgTZx9nfAMDw1IBUhwgrrCGsEXxOVCVwSiAtzaHys=",
+    "last_login": "2023-05-03T02:01:22.169Z",
+    "is_superuser": false,
+    "username": "sampleadminuser",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-03T01:59:22Z",
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$PJuGvXHtTIwQ62ovODgfrw$9bUtv9L6unbX3v0vDaE9Rm4OS0XYTbAUnUZi4afgx20=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nonadminuser",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-03T01:59:37.985Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

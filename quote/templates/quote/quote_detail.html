@@ -32,7 +32,10 @@
                     <th>Submited</th><td>{{ quote.created }}</td>
                 </tr>
                 <tr>
-                    <th>Quoted</th><td>{{ quote.stat }}</td>
+                    <th>Site Status</th><td>{{ quote.stat }}</td>
+                </tr>
+                <tr>
+                    <th>Quoted</th><td>{{ quote.quoted }}</td>
                 </tr>
                 <tr>
                     <th>Quoted Price</th><td>{% if quote.quoted_price  %}{{ quote.quoted_price }} {% else %}--{% endif %}</td>														

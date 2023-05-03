@@ -12,6 +12,14 @@ class Quote(models.Model):
         # PENDING = 'PD', _('Pending')
         # REVIEWING = 'RV', _('Reviewing')
         # APPROVED = 'AP', _('Approved')
+        NEWSITE = 'New Site'
+        EXISTING = 'Existing Site'
+        
+
+    class Quoted(models.TextChoices):
+        # PENDING = 'PD', _('Pending')
+        # REVIEWING = 'RV', _('Reviewing')
+        # APPROVED = 'AP', _('Approved')
         PENDING = 'Pending'
         REVIEWING = 'Reviewing'
         APPROVED = 'Approved'
@@ -42,7 +50,10 @@ class Quote(models.Model):
     updated = models.DateTimeField(auto_now=True)
     stat = models.CharField(max_length=20,
                               choices=Status.choices,
-                              default=Status.PENDING)
+                              default=Status.NEWSITE)
+    quoted = models.CharField(max_length=20,
+                              choices=Quoted.choices,
+                              default=Quoted.PENDING)
     priority = models.CharField(max_length=2,
                                 choices=Priority.choices,
                                 default=Priority.NORMAL)

@@ -36,7 +36,7 @@ class QuoteForm(forms.ModelForm):
         model = Quote
         fields = [ 'name', 'position', 'company', 'address', 
                   'phone', 'email', 'web_address', 'description', 
-                  'priority', 'jobfile']
+                  'priority', 'jobfile', 'stat']
 
         
 class QuoteEditForm(forms.ModelForm):
@@ -44,7 +44,7 @@ class QuoteEditForm(forms.ModelForm):
         model = Quote
         fields = [ 'name', 'position', 'company', 'address', 
                   'phone', 'email', 'web_address', 'description', 
-                  'priority', 'jobfile', 'quoted_price', 'stat', 'requester']
+                  'priority', 'jobfile', 'quoted_price', 'stat','quoted' , 'requester']
         
     
 class EmailPostForm(forms.Form):

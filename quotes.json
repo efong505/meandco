@@ -1,0 +1,90 @@
+[
+{
+  "model": "quote.quote",
+  "pk": 1,
+  "fields": {
+    "name": "Edward Fong",
+    "requester": 1,
+    "position": "CEO",
+    "company": "CNM",
+    "address": "5905 Berquist Place NW",
+    "phone": "5203925923",
+    "email": "efong@cnm.edu",
+    "web_address": "efong505@nmsu.edu",
+    "description": "Yar Pirate Ipsum\r\n\r\nGrapple doubloon coffer rum swing the lead man-of-war bowsprit gibbet splice the main brace transom. Gun scallywag Sink me come about fluke Sail ho rigging gaff chase guns wherry. Measured fer yer chains fire ship boom code of conduct hornswaggle chandler barkadeer bilged on her anchor mutiny warp.\r\n\r\nGalleon boatswain careen loot gun heave to boom rigging Sail ho scuppers. Port aft scuppers interloper rope's end hearties American Main belaying pin hardtack grog. Brig jolly boat hands starboard driver schooner deadlights jury mast hail-shot smartly.\r\n\r\nSkysail lateen sail piracy Jack Tar hang the jib wherry Shiver me timbers killick chandler furl. Aft barque walk the plank cutlass scuttle clap of thunder dead men tell no tales mutiny man-of-war take a caulk. Bilge Pieces of Eight deadlights pirate coxswain booty spanker ahoy walk the plank take a caulk.",
+    "created": "2023-05-03T01:35:02.458Z",
+    "updated": "2023-05-03T01:55:03.480Z",
+    "stat": "New Site",
+    "quoted": "Pending",
+    "priority": "NM",
+    "quoted_price": "0.00",
+    "jobfile": ""
+  }
+},
+{
+  "model": "quote.quote",
+  "pk": 2,
+  "fields": {
+    "name": "Julia Fong",
+    "requester": 2,
+    "position": "CEO",
+    "company": "Julia's Graphic Design",
+    "address": "5905 Berquist Place NW",
+    "phone": "5203925924",
+    "email": "juliabfong@gmail.com",
+    "web_address": "juliasgraphicdesign.com",
+    "description": "Topping croissant chupa chups muffin liquorice. Shortbread sweet cookie topping cookie donut dragΘe. Tart powder jelly-o cotton candy cheesecake carrot cake candy bear claw. Dessert halvah tart marzipan gummi bears caramels topping. Candy canes dragΘe pastry danish oat cake. Croissant jujubes tiramisu chocolate bar muffin tootsie roll. Halvah pastry muffin cheesecake marzipan bonbon marshmallow oat cake ice cream. Carrot cake sweet sesame snaps cake pudding ice cream pudding jelly beans. Muffin marshmallow pie cotton candy topping sesame snaps soufflΘ. Gummies jujubes marzipan powder lemon drops gummi bears. Wafer danish candy pie jelly-o tootsie roll jelly. Biscuit dragΘe ice cream candy sweet roll. Macaroon chocolate cake sugar plum powder cake cheesecake macaroon.\r\n\r\nOat cake sweet roll sugar plum gummi bears powder candy canes gingerbread macaroon ice cream. Jujubes cookie jelly beans danish sweet macaroon jelly-o. Lemon drops bonbon cookie marzipan danish sugar plum powder jelly-o jelly. Sweet sugar plum cupcake topping gummi bears gummies. Oat cake fruitcake bonbon halvah liquorice pie pie topping muffin. Jelly-o fruitcake dragΘe sweet sugar plum. Sweet sesame snaps candy canes cake pie shortbread. Carrot cake tiramisu cupcake donut gummi bears dragΘe dragΘe cheesecake. Liquorice pie jelly beans donut dragΘe cotton candy tart sweet. Cotton candy caramels jelly sesame snaps liquorice macaroon fruitcake. Chocolate bar wafer cupcake gummi bears shortbread cake donut tart. Wafer oat cake muffin soufflΘ icing gingerbread jelly-o. Caramels cupcake candy wafer halvah cupcake chocolate cake muffin.\r\n\r\nCaramels chocolate chocolate cake danish jelly beans. Pastry brownie tart marzipan marshmallow donut. Lollipop jelly ice cream fruitcake candy canes liquorice carrot cake biscuit danish. Gingerbread gummi bears biscuit sweet roll dragΘe jelly beans icing. Tart cheesecake wafer tart macaroon soufflΘ cake. Caramels gummi bears marzipan tart carrot cake. Macaroon toffee gummies marzipan marshmallow liquorice cotton candy bear claw. Tootsie roll oat cake sugar plum brownie marshmallow chocolate carrot cake fruitcake. Liquorice donut muffin soufflΘ muffin bear claw. Liquorice marshmallow topping danish dragΘe gingerbread pastry tart. Cotton candy gingerbread cake cupcake dragΘe gummi bears. Dessert biscuit gingerbread cupcake halvah apple pie.\r\n\r\nToffee pastry powder tart sweet. Jujubes cake caramels lollipop fruitcake gingerbread lollipop sugar plum. Cake candy pastry cupcake muffin oat cake. Pastry cookie sweet roll carrot cake macaroon candy apple pie. Sugar plum danish danish liquorice wafer sesame snaps lemon drops marshmallow. Chupa chups sesame snaps pie liquorice chupa chups. Jelly beans cheesecake bonbon liquorice candy canes pastry jelly-o sesame snaps dragΘe. Cheesecake lemon drops pie pastry fruitcake. Cupcake jelly beans candy canes dessert chocolate bar. Shortbread pastry cotton candy oat cake liquorice macaroon. Bonbon pie cotton candy bear claw bonbon powder. Fruitcake danish jelly beans wafer jelly. Toffee chupa chups topping apple pie tootsie roll chocolate cake ice cream powder. Carrot cake pie jujubes danish lollipop cotton candy topping cupcake tart.\r\n\r\nJelly beans cookie cotton candy cake chocolate gingerbread marshmallow bear claw. Sugar plum caramels icing chocolate gummi bears toffee. Muffin wafer halvah toffee tiramisu sweet roll carrot cake cheesecake. Candy canes caramels sweet caramels pie croissant dragΘe soufflΘ. Cake soufflΘ oat cake tart ice cream candy canes muffin. Jelly-o carrot cake muffin chocolate bar chocolate bar chocolate bar ice cream gummies icing. Macaroon marshmallow bonbon cookie lemon drops sweet roll. Cake dragΘe lollipop tart dragΘe cotton candy. Wafer pie shortbread topping croissant cake liquorice icing wafer. Danish sugar plum powder croissant marshmallow sugar plum sweet roll soufflΘ. Powder toffee chocolate cake jujubes pudding dessert. Wafer dessert ice cream cake liquorice carrot cake shortbread caramels bonbon. Tootsie roll chocolate chocolate bar cupcake jelly.",
+    "created": "2023-05-03T01:37:10.399Z",
+    "updated": "2023-05-03T01:55:49.101Z",
+    "stat": "New Site",
+    "quoted": "Pending",
+    "priority": "NM",
+    "quoted_price": null,
+    "jobfile": "jobfiles/rooibos.jpg"
+  }
+},
+{
+  "model": "quote.quote",
+  "pk": 3,
+  "fields": {
+    "name": "Sweet William",
+    "requester": 3,
+    "position": "Owner",
+    "company": "PUPs R US",
+    "address": "5905 Berquist Place NW",
+    "phone": "5203925923",
+    "email": "puppychow@gmail.com",
+    "web_address": "pupsrus.com",
+    "description": "Doggo ipsum pupper floofs wrinkler doggo shooberino, doggorino very good spot heck, I am bekom fat yapper long doggo. Wow very biscit very hand that feed shibe what a nice floof adorable doggo, very taste wow. Corgo shibe such treat, long woofer. Very taste wow yapper doing me a frighten big ol pupper boof, doge much ruin diet. Wrinkler h*ck long bois heckin wow very biscit extremely cuuuuuute, very good spot wow very biscit you are doin me a concern. Tungg shibe super chub, tungg. Very taste wow dat tungg tho heckin angery woofer ur givin me a spook woofer dat tungg tho shoob, heckin angery woofer aqua doggo ur givin me a spook heckin angery woofer.\r\n\r\nBig ol long water shoob pupper shibe, you are doing me the shock. Super chub very good spot long woofer clouds h*ck yapper such treat vvv what a nice floof smol borking doggo with a long snoot for pats, maximum borkdrive very jealous pupper pupper woofer shoober big ol pupperino floofs. sub woofer shoob smol borking doggo with a long snoot for pats. Adorable doggo heck ruff mlem super chub ur givin me a spook long bois, borkdrive h*ck big ol pupper fat boi.\r\n\r\nHeckin good boys he made many woofs lotsa pats wrinkler, heckin pupperino. H*ck most angery pupper I have ever seen very hand that feed shibe many pats, wow very biscit you are doing me the shock very good spot, heckin good boys heckin. Ur givin me a spook length boy long doggo waggy wags long doggo long water shoob vvv, heckin good boys most angery pupper I have ever seen doggorino noodle horse long bois. Heckin good boys boofers super chub very hand that feed shibe heck the neighborhood pupper what a nice floof, woofer wow very biscit puggo length boy. you are doing me the shock. Shooberino long doggo fat boi mlem shibe, much ruin diet many pats. Very taste wow porgo shoob boof doing me a frighten shibe super chub puggorino, doing me a frighten tungg length boy extremely cuuuuuute wrinkler. Heckin good boys and girls aqua doggo super chub pats, shibe.",
+    "created": "2023-05-03T01:38:43.701Z",
+    "updated": "2023-05-03T01:55:29.661Z",
+    "stat": "New Site",
+    "quoted": "Pending",
+    "priority": "NM",
+    "quoted_price": null,
+    "jobfile": ""
+  }
+},
+{
+  "model": "quote.quote",
+  "pk": 4,
+  "fields": {
+    "name": "Willy",
+    "requester": 3,
+    "position": "CEO",
+    "company": "Puppy Chow Time",
+    "address": "5905 Berquist Place NW",
+    "phone": "5203925923",
+    "email": "puppychow@gmail.com",
+    "web_address": "puppychowtime.com",
+    "description": "Chew toy come dog toy wag pittie puppies stinky. Dog bowl release dog bone boops floof leave it squeak toy milk bone leash. Beagle wiggle stand leap wag growl wag crossbreed dog bowl. Boops beagle chase tail belly rubs, shepherd bring it dog bone chihuahua come nose leap bark waggy. Tail squirrel jump milk bone chihuahua leap k9 bell chew toy, stand chi spin puppy jump. Stay chihuahua wag zoomies nose puppy roll over. Lap dog bell shepherd lab, bring it fluffy tug stinky aussie cattledog mastiff leave it tail chihuahua. Dobie beagle dog bone leave it chihuahua, bark tug come dog house jump lab dog house. Growl zoomies shake, dog house cattledog squeak toy down roll over jump chihuahua tail down.\r\n\r\nBeagle dachshund release cattledog, milk bone roll over leash bell floof leave it paw puppy. Woof bark tails tennis ball chase tail come squeak toy down shake. Tug stay tennis ball wuff shepherd, floof bark boops nose growl chew toy lap dog paw.\r\n\r\nTug puppy stand chew toy bark dog toy bring it heel dachshund, tug fluffy bring it wuff squirrel. Floppy ears release floof, squirrel nose fetch vet wag dog aussie husky. Leash squirrel husky husky fluffy squirrel tails, come stinky nose lap dog release. Shepherd stand dachshund zoomies mastiff, leap woof fetch stand collar mastiff. Shepherd collie tails, chew toy leash lap dog squirrel sit aussie dachshund shepherd sit mastiff floppy ears. Paw pittie pittie vet rottie floppy ears tail stay roll over. Tug kibbles jump dog bowl, fetch jump release nose tail leash vet dog bowl. Lap dog dog toy leash beagle pittie dog bowl shake wuff lap dog. Collie husky wag k9 wiggle sit, floof speak tug come wiggle bark.",
+    "created": "2023-05-03T01:40:48.070Z",
+    "updated": "2023-05-03T01:54:12.979Z",
+    "stat": "New Site",
+    "quoted": "Pending",
+    "priority": "NM",
+    "quoted_price": null,
+    "jobfile": ""
+  }
+}
+]
