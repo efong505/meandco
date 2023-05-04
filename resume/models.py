@@ -1,6 +1,12 @@
 from django.db import models
 
 
+"""
+Header section that contains the name, in my example case Edward Fong, 
+    the intro to the resume, the title of the position applying for, the phone number, 
+    email, website link to another profile project that I created in a previous class, 
+    and my address.
+"""
 class Header(models.Model):
     name = models.CharField(max_length=250)
     intro = models.TextField()
@@ -14,6 +20,10 @@ class Header(models.Model):
         return self.name
 
 
+"""
+WORK EXPERIENCE - Class that creates each work experience that contains
+    the job title, location of job, start and end date and the duties. 
+"""
 class WorkExperience(models.Model):
     title = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
@@ -32,6 +42,9 @@ class WorkExperience(models.Model):
         return self.title
 
 
+"""
+SKILLS - Creates an individual skill that consists of just the name of the skill.
+"""
 class Skill(models.Model):
     name = models.CharField(max_length=250)
 
@@ -39,6 +52,10 @@ class Skill(models.Model):
         return self.name
 
 
+"""
+EDUCATION - Creates an education entry that consists of the title of the degree,
+    school the degree was earned at, and the start and end date of the school.
+"""
 class Education(models.Model):
     title = models.CharField(max_length=250)
     school = models.CharField(max_length=250)
@@ -56,6 +73,10 @@ class Education(models.Model):
         return self.title
 
 
+"""
+CERTIFICATIONS - Creates a certification instance that includes the name, 
+    start and end date. 
+"""
 class Certification(models.Model):
     name = models.CharField(max_length=250)
     start = models.DateField()

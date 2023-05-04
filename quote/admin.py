@@ -9,7 +9,9 @@ class QuoteAdmin(admin.ModelAdmin):
     
 admin.site.register(Quote, QuoteAdmin)
 
+
 class HomeAdmin(admin.ModelAdmin):
     list_dislapy = ['name', 'updated']
+
 admin.site.register(Home, HomeAdmin)
 

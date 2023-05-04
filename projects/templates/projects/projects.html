@@ -12,7 +12,7 @@
     {% for project in projects %}
     <!-- Content -->
         <h2 id="content">{{ project.name }}</h2>
-        {% if project.description %}<p>{{ project.description |safe}}</p>{% endif %}
+        {% if project.description %}<p>{{ project.description | safe}}</p>{% endif %}
         <div class="row">
             <div class="col-6 col-12-medium">
                 <span class="image fit"><img src="{{ project.leftimage.url }}" alt="" /></span>
@@ -21,7 +21,7 @@
             <div class="col-6 col-12-medium">
                 {% if project.rightimage %}<span class="image fit"><img src="{{ project.rightimage.url }}" alt="" /></span>{% endif %}
                 {% if project.additionalright %}
-                {{ project.additionalright|safe }}
+                {{ project.additionalright | safe }}
                 {% endif %}
                 
                 {% comment %} <h3>Ed's Fong Awesome</h3>
@@ -33,6 +33,8 @@
         </div>
         <hr>
     {% endfor %}
+    {% else %}
+    <h1>No projects currently availble to show.</h1> 
     {% endif %}
 </section>
 
