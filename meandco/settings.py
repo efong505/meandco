@@ -139,8 +139,8 @@ LOGOUT_URL = 'logout'
 
 # Email server configuration
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = EMAIL_ADDRESS #'hawaiianintucson@gmail.com'
-EMAIL_HOST_PASSWORD = SECRET_PASSWORD
+EMAIL_HOST_USER = 'hawaiianintucson@gmail.com'
+EMAIL_HOST_PASSWORD = 'slivcysrpfqcqwea'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
