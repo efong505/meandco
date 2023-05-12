@@ -1,4 +1,5 @@
 from django import forms
+from captcha.fields import CaptchaField
 from django.contrib.auth.models import User
 from  .models import Quote
 
@@ -9,6 +10,7 @@ LOGIN FORM - Used for logging into their account
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
+    captcha = CaptchaField()
 
 
 """
@@ -79,4 +81,4 @@ class EmailPostForm(forms.Form):
     subject = forms.CharField(max_length=25)
     message = forms.CharField(required=False,
                               widget=forms.Textarea)
-    
+    captcha = CaptchaField()

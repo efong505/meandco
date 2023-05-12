@@ -72,6 +72,7 @@ def contact_form_email_send(request):
         # Form was submitted
         form = EmailPostForm(request.POST)
         if form.is_valid():
+            human = True
             #Form Fields passed validation
             cd = form.cleaned_data
             email = f"{cd['email']}"

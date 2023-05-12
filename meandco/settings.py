@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['edkfong505.pythonanywhere.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'captcha',
     'resume.apps.ResumeConfig',
     'projects.apps.ProjectsConfig',
     'quote.apps.QuoteConfig',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote', 
+    
     
     
 ]
@@ -143,7 +145,7 @@ EMAIL_HOST_USER = EMAIL_ADDRESS
 
 EMAIL_HOST_PASSWORD = SECRET_PASSWORD
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = True 
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

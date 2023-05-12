@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('quote.urls')),
     path('', include('resume.urls')),
     path('', include('projects.urls')),
+    path('captcha/', include('captcha.urls')),
     
 ]
 
